@@ -6,8 +6,11 @@ const Box = Styled.div`
   border: 2px solid black;
   display: flex;
   flex-direction: column;
-  box-shadow: 17px 10px 5px 0px rgba(0,0,0,0.75);
-  /* min-width: 470px; */
+  // box-shadow: 17px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 27px 17px -9px rgba(37,7,7,1);
+  -webkit-box-shadow: 1px 27px 17px -9px rgba(37,7,7,1);
+  -moz-box-shadow: 1px 27px 17px -9px rgba(37,7,7,1);
+  // min-width: 470px;
   max-width: 453;
   @media only screen and (max-width: 449px) {
     height: 500px;
@@ -19,7 +22,7 @@ const initial = {
   place: "City",
   temp: `0°C`,
   wind: `0Kmph`,
-  humidity: `0`
+  humidity: `0g.m-3`
 };
 
 const url = `https://static.onecms.io/wp-content/uploads/sites/28/2021/07/30/new-delhi-india-NEWDELHITG0721.jpg`;
@@ -79,9 +82,9 @@ const url = `https://static.onecms.io/wp-content/uploads/sites/28/2021/07/30/new
       .then((data) =>
         setLocation({
           place: data.location.name,
-          temp: `${data.current.temp_c}°`,
-          wind: `${data.current.wind_kph}Kph`,
-          humidity: data.current.humidity
+          temp: `${data.current.temp_c}°c`,
+          wind: `${data.current.wind_kph}kph`,
+          humidity: `${data.current.humidity}g.m-3`
         })
       )
       .catch((err) => console.error(err));
@@ -91,7 +94,9 @@ const url = `https://static.onecms.io/wp-content/uploads/sites/28/2021/07/30/new
     <div className="App">
       <Box>
         <div id="set">
+          <div id="image">
           <img src={backgroundImg} alt="background" />
+          </div>
           <div id="result">
             <name>Place: {location.place} </name>
             <div>Temp:{location.temp}</div>

@@ -10,8 +10,16 @@
   
   margin: auto auto;
 }
-img {
+
+#image{
   width: 100%;
+  overflow: hidden;
+}
+
+
+img {
+  display: block;
+  min-width: 100%;
   height: 300px;
   object-fit: cover;
   filter: blur(1px);
